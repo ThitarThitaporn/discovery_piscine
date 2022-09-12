@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calc</title>
+
+    <style >
+        body{
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head> 
+<script>
+
+setInterval(function () {
+  alert("Please, use me...");}, 30000);
+
+function Calculate() {
+    const num1 = parseFloat(document.getElementById("num1").value);
+    const num2 = parseFloat(document.getElementById("num2").value);
+    const operator = document.getElementById("operator").value;
+    let ans = 0;
+
+    if (isNaN(num1) || isNaN(num2)) {
+    console.log("Error :(");
+    alert("Error :(");
+    return; 
+  }
+
+  if (num1 < 0 || num2 < 0) {
+    console.log("Error :(");
+    alert("Error :(");
+    return;
+  } else if (operator == "+") {
+    ans = num1 + num2;
+  } else if (operator == "-") {
+    ans = num1 - num2;
+  } else if (operator == "*") {
+    ans = num1 * num2;
+  } else if (operator == "/") {
+    ans = num1 / num2;
+  } else if (operator == "%") {
+    ans = num1 % num2;
+  }
+
+if ((operator == '/' || operator == '%') && num2 == '0') {
+  console.log("It’s over 9000!");
+  alert("It’s over 9000!");
+} else {
+  console.log(ans);
+  alert(ans);
+}
+};
+</script>
+<body>
+      <h1>Calculator</h1>
+        <input type="text" id="num1" required />
+        <select id="operator">
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="*">*</option>
+          <option value="/">/</option>
+          <option value="%">%</option>
+        </select>
+        <input type="text" id="num2" required />
+        <input type="submit" onclick ="Calculate()" value="Try me!" />
+</body>
+</html>
